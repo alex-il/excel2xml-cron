@@ -24,17 +24,23 @@ import static org.quartz.CronScheduleBuilder.cronSchedule;
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.TriggerBuilder.newTrigger;
 
-public class XmlCreatorCron implements Runnable, Constants, ApiProperties {
+public class XmlCreatorCron implements Runnable, Constant, ApiProperties {
 	
 	private static int c = 1;
 	private String absoluteFile;
+	private String outputFolder;
 
-	public XmlCreatorCron() {
+	public XmlCreatorCron(String absoluteFile) {
 
 	}
 
-	public XmlCreatorCron(String absoluteFile) {
+	public XmlCreatorCron(String absoluteFile, String outputFolder) {
 		this.absoluteFile = absoluteFile;
+		this.outputFolder = outputFolder;
+	}
+
+	public XmlCreatorCron() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public void run() {

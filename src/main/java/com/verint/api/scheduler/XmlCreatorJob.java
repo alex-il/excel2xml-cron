@@ -2,7 +2,7 @@ package com.verint.api.scheduler;
 
 import static com.verint.api.common.ApiProperties.*;
 import static com.verint.api.common.Util.getTimeStamp;
-import static com.verint.api.scheduler.Constants.*;
+import static com.verint.api.scheduler.Constant.*;
 import static com.verint.api.ui.XmlCreatorUI.print;
 import static com.verint.api.xml.dl.XmlFileTemplate.*;
 
@@ -102,7 +102,7 @@ public class XmlCreatorJob implements Job {
 					
 
 		} else if (TAB_VA_CREATE.equals(sheetName)) {
-			System.err.println("-----------");
+//XXX Ok!
 			final Object id     			 = ((ArrayList<?>) sData.get(VAC_id)).get(index);
 			final Object userName 			 = ((ArrayList<?>) sData.get(VAC_userName)).get(index);
 			final Object url 				 = ((ArrayList<?>) sData.get(VAC_url)).get(index);
@@ -212,6 +212,7 @@ public class XmlCreatorJob implements Job {
 	}
 
 	private String createAbsoluteFilePath(String sheetName, String requestId) {
+//		return String.format(TEMPL_FILE_UI, sheetName, getTimeStamp(), requestId);
 		return String.format(TEMPL_FILE, sheetName, getTimeStamp(), requestId);
 	}
 

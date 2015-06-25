@@ -4,6 +4,7 @@ public interface ApiProperties {
 	public static final String JOB_PARAMS = "JOB_PARAMS";
 	public static final String JOB_INDEX = "JOB_INDEX";
 	public static final String S_NAME = "SHEET_NAME";
+	public static final String JP_ABS_PATH = "JP_ABS_PATH";
 	
 	public static final String TAB_CR_CREATE = "CR-create";
 	public static final String TAB_VA_SELECT_DELETE = "VA-Select-Delete";
@@ -117,8 +118,9 @@ public interface ApiProperties {
 	public static final String CR_getFriends = "getFriends"; 
 
 	
-	public static String ABSOLUTE_PATH = "c:/api-xml/";
-	public static String TEMPL_FILE = ABSOLUTE_PATH + "%s_%s_%s.xml";
+	public static String ABSOLUTE_OUT_PATH = "c:/api-xml";
+	public static String TEMPL_FILE = ABSOLUTE_OUT_PATH +"/%s_%s_%s.xml";
+	public static String TEMPL_FILE_UI = "%s/%s_%s_%s.xml";
 	public static String DELIMITER = "##";
 
 }
