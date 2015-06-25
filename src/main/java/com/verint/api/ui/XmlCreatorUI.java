@@ -54,15 +54,15 @@ public class XmlCreatorUI extends JPanel implements ActionListener {
 		fc.addChoosableFileFilter(new ExcelFilter());
 		fc.setAcceptAllFileFilterUsed(false);
 
-		openButton = new JButton("Open File...", createImageIcon("images/Open16.gif"));
+		openButton = new JButton("Open File...", createImageIcon("images/Excel32.jpg"));
 		openButton.addActionListener(this);
 
 		// Create the save button. We use the image from the JLF
 		// Graphics Repository (but we extracted it from the jar).
-		cleanButton = new JButton("Clean...", createImageIcon("images/Save16.gif"));
+		cleanButton = new JButton("Clear Log", createImageIcon("images/Clear.png"));
 		cleanButton.addActionListener(this);
 
-		folderButton = new JButton("Choose Folder", createImageIcon("images/Open16.gif"));
+		folderButton = new JButton("Choose Folder", createImageIcon("images/Open32.jpg"));
 		folderButton.addActionListener(this);
 
 		// For layout purposes, put the buttons in a separate panel
