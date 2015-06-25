@@ -31,6 +31,7 @@ public class XmlCreatorJob implements Job {
 		JobDataMap jdm = context.getJobDetail().getJobDataMap();
 		i++;
 		final String sheetName = jdm.getString(S_NAME);
+		final String absPath = jdm.getString(JP_ABS_PATH);
 		final Integer index = jdm.getIntValue(JOB_INDEX);
 		final Hashtable<?, ?> sData = (Hashtable<?, ?>) jdm.get(JOB_PARAMS);
 
@@ -172,7 +173,7 @@ public class XmlCreatorJob implements Job {
 			// System.err.println(TAB_WEBPLATFORMS);
 		}
 
-		String absoluteFilePath = createAbsoluteFilePath(sheetName, requestId);
+		String absoluteFilePath = createAbsoluteFilePath(sheetName, requestId, absPath);
 		RandomAccessFile outFile;
 		print("writing to file: " + absoluteFilePath);
 		try {
@@ -211,9 +212,11 @@ public class XmlCreatorJob implements Job {
 		return REQ_ID_PREFIX + i;
 	}
 
-	private String createAbsoluteFilePath(String sheetName, String requestId) {
-//		return String.format(TEMPL_FILE_UI, sheetName, getTimeStamp(), requestId);
-		return String.format(TEMPL_FILE, sheetName, getTimeStamp(), requestId);
+	private String createAbsoluteFilePath(String sheetName, String requestId, String absPath) {
+		return String.format(TEMPL_FILE_UI, absPath, sheetName, getTimeStamp(), requestId);
+//		if (absPath != null && absPath.length() > 3) {
+//		}
+//		return String.format(TEMPL_FILE, sheetName, getTimeStamp(), requestId);
 	}
 
 	public static void main(String[] args) {

@@ -1,12 +1,15 @@
 package com.verint.api.scheduler;
 
 
+import static com.verint.api.ui.XmlCreatorUI.print;
+import static org.quartz.CronScheduleBuilder.cronSchedule;
+import static org.quartz.JobBuilder.newJob;
+import static org.quartz.TriggerBuilder.newTrigger;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
 
-import org.apache.commons.codec.binary.StringUtils;
-import org.apache.poi.util.StringUtil;
 import org.quartz.CronTrigger;
 import org.quartz.JobDataMap;
 import org.quartz.JobDetail;
@@ -19,10 +22,6 @@ import com.verint.api.common.ApiProperties;
 import com.verint.api.excel.converter.ExcelReader;
 import com.verint.api.excel.converter.pojo.ExcelWorkbook;
 import com.verint.api.excel.converter.pojo.ExcelWorksheet;
-import static  com.verint.api.ui.XmlCreatorUI.*;
-import static org.quartz.CronScheduleBuilder.cronSchedule;
-import static org.quartz.JobBuilder.newJob;
-import static org.quartz.TriggerBuilder.newTrigger;
 
 public class XmlCreatorCron implements Runnable, Constant, ApiProperties {
 	
@@ -74,12 +73,12 @@ public class XmlCreatorCron implements Runnable, Constant, ApiProperties {
 						.withSchedule(cronSchedule(cronExpression)).build();
 				final JobDataMap jobDataMap = job.getJobDataMap();
 				jobDataMap.put(S_NAME, sName);
+				jobDataMap.put(JP_ABS_PATH, outputFolder);
 				jobDataMap.put(JOB_INDEX, index);
 				jobDataMap.put(JOB_PARAMS, data);
 				Date ft = sched.scheduleJob(job, trigger);
 				sched.start();
-
-				// System.err.println("------- Waiting ... ------------");
+				print(ft.toString());
 				// sched.shutdown(true);
 				SchedulerMetaData metaData = sched.getMetaData();
 				System.err.println("Executed " + metaData.getNumberOfJobsExecuted() + " jobs.");
