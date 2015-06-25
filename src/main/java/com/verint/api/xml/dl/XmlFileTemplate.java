@@ -152,10 +152,10 @@ public class XmlFileTemplate {
     	      "\t\t\t\t\t<OAuthClientSecret>%s</OAuthClientSecret>\n" +
     	      "\t\t\t\t</parameters>\n" +
     	      "\t\t\t\t<counries>\n" +
-    	      "\t\t\t\t\t<county>%s</county>\n" +
+    	      "%s" +
     	      "\t\t\t\t</counries>\n" +
     	      "\t\t\t\t<tags>\n" +
-    	      "\t\t\t\t\t<tag>%s</tag>\n" +
+    	      "%s" +
     	      "\t\t\t\t</tags>\n" +
     	      "\t\t\t</va>\n" +
     	      "\t\t</webPlatform>\n" +

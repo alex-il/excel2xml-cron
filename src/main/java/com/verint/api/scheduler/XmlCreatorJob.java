@@ -1,22 +1,8 @@
 package com.verint.api.scheduler;
 
 import static com.verint.api.common.ApiProperties.*;
-import static com.verint.api.common.ApiProperties.CONSUMERIDENTIFIER;
-import static com.verint.api.common.ApiProperties.JOB_INDEX;
-import static com.verint.api.common.ApiProperties.JOB_PARAMS;
-import static com.verint.api.common.ApiProperties.METHOD;
-import static com.verint.api.common.ApiProperties.REQUEST_TIME;
-import static com.verint.api.common.ApiProperties.S_NAME;
-import static com.verint.api.common.ApiProperties.TAB_CR_CREATE;
-import static com.verint.api.common.ApiProperties.TAB_VA_CREATE;
-import static com.verint.api.common.ApiProperties.TAB_VA_SELECT_DELETE;
-import static com.verint.api.common.ApiProperties.TAB_WEBPLATFORMS;
-import static com.verint.api.common.ApiProperties.TEMPL_FILE;
-import static com.verint.api.common.ApiProperties.USER_ID;
-import static com.verint.api.common.ApiProperties.WEBPLATFORM_ID;
 import static com.verint.api.common.Util.getTimeStamp;
-//import com.verint.api.common.ApiProperties;
-import static com.verint.api.scheduler.Constants.REQ_ID_PREFIX;
+import static com.verint.api.scheduler.Constants.*;
 import static com.verint.api.ui.XmlCreatorUI.print;
 import static com.verint.api.xml.dl.XmlFileTemplate.*;
 
@@ -140,10 +126,12 @@ public class XmlCreatorJob implements Job {
 			final Object OAuthCode     	     = ((ArrayList<?>) sData.get(VAC_OAuthCode     	  )).get(index);
 			final Object OAuthClientId       = ((ArrayList<?>) sData.get(VAC_OAuthClientId    )).get(index);
 			final Object OAuthClientSecret   = ((ArrayList<?>) sData.get(VAC_OAuthClientSecret)).get(index);
-			final Object county    		     = ((ArrayList<?>) sData.get(VAC_county    		  )).get(index);
-			final Object tag     	         = ((ArrayList<?>) sData.get(VAC_tag     	      )).get(index);
 			
+			final Object countries    		     = ((ArrayList<?>) sData.get(VAC_county    		  )).get(index);
+			final String country = createCountry(countries);
 			
+			final Object tags    	         = ((ArrayList<?>) sData.get(VAC_tag     	      )).get(index);
+			final String tag = createTag(tags);
 			
 			
 			outStr = String.format(VA_CREATE_TEMLATE, consId, uid, requestId, rTime, method, action, wid
@@ -170,7 +158,7 @@ public class XmlCreatorJob implements Job {
 					  , OAuthCode       		
 					  , OAuthClientId     	
 					  , OAuthClientSecret  
-					  , county    		  
+					  , country    		  
 					  , tag     			  
 					);
 			
@@ -199,6 +187,26 @@ public class XmlCreatorJob implements Job {
 		print(i + ":---->>>> executor SimpleJob says: " + jobKey + " executing at " + new Date() + "\n");
 	}
 
+	private String createTag(Object o) {
+		return parse(o, "\t\t\t\t\t<tag>%s</tag>\n");
+	}
+	
+	private String createCountry(Object o) {
+		return parse(o, "\t\t\t\t\t<country>%s</country>\n");
+	}
+	
+	private String parse(Object o, String template) {
+		if (o == null)
+			return "";
+		String tags = (String) o;
+		final String[] t = tags.split(DELIMITER);
+		StringBuffer sb = new StringBuffer();
+		for (String s : t) {
+			sb.append(String.format(template, s));
+		}
+		return sb.toString();
+	}
+
 	private String getRequestId() {
 		return REQ_ID_PREFIX + i;
 	}
@@ -208,8 +216,11 @@ public class XmlCreatorJob implements Job {
 	}
 
 	public static void main(String[] args) {
-		String outStr = String.format(REQ_WEBPLATFORM_TEMLATE, "1", "2", "3", "4", "5", "6", "7");
-		outStr = String.format(VA_SELECT_DELETE_TEMLATE, "1", "2", "3", "4", "111", "112", "113", "114");
-		System.out.println(outStr);
+
+//		String outStr = String.format(REQ_WEBPLATFORM_TEMLATE, "1", "2", "3", "4", "5", "6", "7");
+//		outStr = String.format(VA_SELECT_DELETE_TEMLATE, "1", "2", "3", "4", "111", "112", "113", "114");
+//		System.out.println(outStr);
+		
+		
 	}
 }

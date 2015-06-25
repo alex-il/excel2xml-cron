@@ -119,5 +119,6 @@ public interface ApiProperties {
 	
 	public static String ABSOLUTE_PATH = "c:/api-xml/";
 	public static String TEMPL_FILE = ABSOLUTE_PATH + "%s_%s_%s.xml";
+	public static String DELIMITER = "##";
 
 }
