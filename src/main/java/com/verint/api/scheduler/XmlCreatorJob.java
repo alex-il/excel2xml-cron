@@ -135,7 +135,7 @@ public class XmlCreatorJob implements Job {
 			final Object OAuthClientId       = ((ArrayList<?>) sData.get(VAC_OAuthClientId    )).get(index);
 			final Object OAuthClientSecret   = ((ArrayList<?>) sData.get(VAC_OAuthClientSecret)).get(index);
 			
-			final Object countries    		     = ((ArrayList<?>) sData.get(VAC_country    		  )).get(index);
+			final Object countries    		     = ((ArrayList<?>) sData.get(VAC_countries    		  )).get(index);
 			final String country = createCountry(countries);
 			
 			final Object tags    	         = ((ArrayList<?>) sData.get(VAC_tags     	      )).get(index);

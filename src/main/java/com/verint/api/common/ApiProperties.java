@@ -89,7 +89,7 @@ public interface ApiProperties {
 	public static final String VAC_OAuthCode     	   = "OAuthCode";     	
 	public static final String VAC_OAuthClientId       = "OAuthClientId";     
 	public static final String VAC_OAuthClientSecret   = "OAuthClientSecret"; 
-	public static final String VAC_country    		   = "country";    		
+	public static final String VAC_countries    	   = "countries";    		
 	public static final String VAC_tags     		   = "tags";   
 	
 //	 CR create
