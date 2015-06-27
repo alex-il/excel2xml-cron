@@ -58,10 +58,10 @@ public class XmlFileTemplate {
             "                    <proxyPassword>%s</proxyPassword>\n" +                     //    "                    <proxyPassword></proxyPassword>\n" +                                                                  
             "                </configurationParameters>\n" +                              //    "                </configurationParameters>\n" +                                                                           
             "                <tags>\n" +                                                  //    "                <tags>\n" +                                                                                               
-            "                    <tag>%s</tag>\n" +                                      //    "                    <tag>man</tag>\n" +                                                                                   
+            "%s" +    						                                  			//    "                    <tag>man</tag>\n" +                                                                                   
             "                </tags>\n" +                                                 //    "                </tags>\n" +                                                                                              
             "                <countries>\n" +                                             //    "                <countries>\n" +                                                                                          
-            "                    <county>%s</county>\n" +                                 //    "                    <county>US</county>\n" +                                                                              
+            "%s" +                                 										//    "                    <county>US</county>\n" +                                                                              
             "                </countries>\n" +                                            //    "                </countries>\n" +                                                                                         
             "                <inputParameters>\n" +                                       //    "                <inputParameters>\n" +                                                                                    
             "                    <parameter>\n" +                                         //    "                    <parameter>\n" +                                                                                      
@@ -163,11 +163,5 @@ public class XmlFileTemplate {
     	      "</request>\n"
     	      ;
 
-
-
-
-    
-
-    
     
 }

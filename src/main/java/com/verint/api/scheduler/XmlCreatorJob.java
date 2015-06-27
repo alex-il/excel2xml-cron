@@ -68,14 +68,21 @@ public class XmlCreatorJob implements Job {
 			final Object proxyHostPort 			= ((ArrayList<?>) sData.get(CR_proxyHostPort 		)).get(index);
 			final Object proxyUserName 			= ((ArrayList<?>) sData.get(CR_proxyUserName 		)).get(index);
 			final Object proxyPassword 			= ((ArrayList<?>) sData.get(CR_proxyPassword 		)).get(index);
-			final Object tags 					= ((ArrayList<?>) sData.get(CR_tags 				)).get(index);
-			final Object countries 				= ((ArrayList<?>) sData.get(CR_countries 			)).get(index);
 			final Object monthsBack 			= ((ArrayList<?>) sData.get(CR_monthsBack 			)).get(index);
 			final Object url 					= ((ArrayList<?>) sData.get(CR_url 					)).get(index);
 			final Object getAlbums 				= ((ArrayList<?>) sData.get(CR_getAlbums 			)).get(index);
 			final Object getFriends			 	= ((ArrayList<?>) sData.get(CR_getFriends			)).get(index);
 
+			final Object countries    		     = ((ArrayList<?>) sData.get(CR_countries   		)).get(index);
+			final String country = createCountry(countries);
+			
+			final Object tags    	         = ((ArrayList<?>) sData.get(CR_tags     	      		)).get(index);
+			final String tag = createTag(tags);
+			
+
+			
 			outStr = String.format(CR_CREATE_TEMLATE, consId, uid, requestId, rTime, method, action
+					, wid
 					, id				
 					, name					
 					, networkStrategy 		
@@ -93,12 +100,12 @@ public class XmlCreatorJob implements Job {
 					, proxyHostPort 		
 					, proxyUserName 		
 					, proxyPassword 		
-					, tags 				
-					, countries 			
+					, tag 				
+					, country 			
 					, monthsBack 			
 					, url 					
 					, getAlbums 			
-					, getFriends			
+					, getFriends	
 					);
 					
 
@@ -128,10 +135,10 @@ public class XmlCreatorJob implements Job {
 			final Object OAuthClientId       = ((ArrayList<?>) sData.get(VAC_OAuthClientId    )).get(index);
 			final Object OAuthClientSecret   = ((ArrayList<?>) sData.get(VAC_OAuthClientSecret)).get(index);
 			
-			final Object countries    		     = ((ArrayList<?>) sData.get(VAC_county    		  )).get(index);
+			final Object countries    		     = ((ArrayList<?>) sData.get(VAC_country    		  )).get(index);
 			final String country = createCountry(countries);
 			
-			final Object tags    	         = ((ArrayList<?>) sData.get(VAC_tag     	      )).get(index);
+			final Object tags    	         = ((ArrayList<?>) sData.get(VAC_tags     	      )).get(index);
 			final String tag = createTag(tags);
 			
 			

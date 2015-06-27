@@ -6,7 +6,7 @@ public interface ApiProperties {
 	public static final String S_NAME = "SHEET_NAME";
 	public static final String JP_ABS_PATH = "JP_ABS_PATH";
 	
-	public static final String TAB_CR_CREATE = "CR-create";
+	public static final String TAB_CR_CREATE = "CR-Create";
 	public static final String TAB_VA_SELECT_DELETE = "VA-Select-Delete";
 	public static final String TAB_WEBPLATFORMS = "WebPlatforms_select";
 	public static final String TAB_VA_CREATE = "VA-Create";
@@ -89,33 +89,33 @@ public interface ApiProperties {
 	public static final String VAC_OAuthCode     	   = "OAuthCode";     	
 	public static final String VAC_OAuthClientId       = "OAuthClientId";     
 	public static final String VAC_OAuthClientSecret   = "OAuthClientSecret"; 
-	public static final String VAC_county    		   = "county";    		
-	public static final String VAC_tag     			   = "tag";   
+	public static final String VAC_country    		   = "country";    		
+	public static final String VAC_tags     		   = "tags";   
 	
 //	 CR create
-	public static final String CR_id = "id";       
-	public static final String CR_name = "name";               
-	public static final String CR_networkStrategy = "networkStrategy";          
-	public static final String CR_priority = "priority";         
-	public static final String CR_validFrom = "validFrom";   		
-	public static final String CR_validTo = "validTo";
-	public static final String CR_scheduleCron = "scheduleCron";   
-	public static final String CR_periodicRange = "periodicRange";            
-	public static final String CR_runImmediately = "runImmediately";          
-	public static final String CR_virtualAgentPolicy = "virtualAgentPolicy";         
-	public static final String CR_virtualAgent = "virtualAgent";    
-	public static final String CR_crStatus = "crStatus";             
-	public static final String CR_customerCrId = "customerCrId";     
-	public static final String CR_deltaCrawling = "deltaCrawling";  
-	public static final String CR_proxyHostPort = "proxyHostPort";    
-	public static final String CR_proxyUserName = "proxyUserName";       
-	public static final String CR_proxyPassword = "proxyPassword";     
-	public static final String CR_tags = "tags";     
-	public static final String CR_countries = "countries";     
-	public static final String CR_monthsBack = "monthsBack";  	
-	public static final String CR_url = "url";     	
-	public static final String CR_getAlbums = "getAlbums";     
-	public static final String CR_getFriends = "getFriends"; 
+	public static final String CR_id 					= "id";       
+	public static final String CR_name 					= "name";               
+	public static final String CR_networkStrategy		= "networkStrategy";          
+	public static final String CR_priority 				= "priority";         
+	public static final String CR_validFrom 			= "validFrom";   		
+	public static final String CR_validTo 				= "validTo";
+	public static final String CR_scheduleCron 			= "scheduleCron";   
+	public static final String CR_periodicRange 		= "periodicRange";            
+	public static final String CR_runImmediately 		= "runImmediately";          
+	public static final String CR_virtualAgentPolicy 	= "virtualAgentPolicy";         
+	public static final String CR_virtualAgent 			= "virtualAgent";    
+	public static final String CR_crStatus 				= "crStatus";             
+	public static final String CR_customerCrId 			= "customerCrId";     
+	public static final String CR_deltaCrawling 		= "deltaCrawling";  
+	public static final String CR_proxyHostPort 		= "proxyHostPort";    
+	public static final String CR_proxyUserName 		= "proxyUserName";       
+	public static final String CR_proxyPassword 		= "proxyPassword";     
+	public static final String CR_tags 					= "tags";     
+	public static final String CR_countries 			= "countries";     
+	public static final String CR_monthsBack 			= "monthsBack";  	
+	public static final String CR_url 					= "url";     	
+	public static final String CR_getAlbums 			= "getAlbums";     
+	public static final String CR_getFriends 			= "getFriends"; 
 
 	
 	public static String ABSOLUTE_OUT_PATH = "c:/api-xml";
